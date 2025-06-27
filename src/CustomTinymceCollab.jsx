@@ -65,8 +65,8 @@ const CustomTinyMceCollab = () => {
             await loadTinyMCEScript();
 
             try {
-                const res = await axios.get('https://8f89c53c-7e8c-458b-8561-33386c680c73-00-yg7ctkxthwa6.picard.replit.dev/document');
-                // const res = await axios.get('https://3ed10fa9-5099-4221-a618-744c43047476-00-n8mnnnl2ojn9.riker.replit.dev:5000/document');
+                // const res = await axios.get('https://8f89c53c-7e8c-458b-8561-33386c680c73-00-yg7ctkxthwa6.picard.replit.dev/document');
+                const res = await axios.get('https://3ed10fa9-5099-4221-a618-744c43047476-00-n8mnnnl2ojn9.riker.replit.dev:5000/document');
                 // const res = await axios.get('http://127.0.0.1:8099/document');
                 console.log(res.data,'res.data')
                 const htmlContent = convertJsontoHtml(res.data);
@@ -78,8 +78,8 @@ const CustomTinyMceCollab = () => {
         };
 
         fetchAndInit();
-        const ws = new WebSocket('wss://8f89c53c-7e8c-458b-8561-33386c680c73-00-yg7ctkxthwa6.picard.replit.dev/ws');
-        // const ws = new WebSocket('wss://3ed10fa9-5099-4221-a618-744c43047476-00-n8mnnnl2ojn9.riker.replit.dev:5000/ws');
+        // const ws = new WebSocket('wss://8f89c53c-7e8c-458b-8561-33386c680c73-00-yg7ctkxthwa6.picard.replit.dev/ws');
+        const ws = new WebSocket('wss://3ed10fa9-5099-4221-a618-744c43047476-00-n8mnnnl2ojn9.riker.replit.dev:5000/ws');
         // const ws = new WebSocket('ws://127.0.0.1:8099/ws');
         wsRef.current = ws;
 
@@ -116,9 +116,9 @@ const CustomTinyMceCollab = () => {
     }, [editorId]);
 
     return (
-        <div>
+        <div style={{width:"100%"}}>
             <h2>Collaborative TinyMCE Editor</h2>
-            <textarea id={editorId}></textarea>
+            <textarea style={{width:"100%"}} id={editorId}></textarea>
         </div>
     );
 };
